@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoxSnap – Packing video evidence by QR scan</title>
+<meta name="description" content="BoxSnap records the packing of every online order. Scan the order QR to start, scan again or show the OK hand sign to stop. Videos saved to your phone and Google Drive.">
+<style>
+  :root { --red:#C62828; --ink:#1f2328; --muted:#5b6470; --line:#e3e6ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:17px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:#fafafa; }
+  .hero { background:var(--red); color:#fff; padding:56px 20px 64px; text-align:center; }
+  .hero h1 { margin:0 0 8px; font-size:44px; letter-spacing:.5px; }
+  .hero p { margin:0 auto; max-width:620px; font-size:19px; opacity:.95; }
+  .lang { margin-top:18px; }
+  .lang a { color:#fff; margin:0 8px; font-size:14px; }
+  .btn { display:inline-block; margin-top:26px; background:#fff; color:var(--red); padding:12px 26px; border-radius:28px; font-weight:700; text-decoration:none; }
+  main { max-width:900px; margin:0 auto; padding:36px 20px 60px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .card b { display:block; font-size:18px; margin-bottom:6px; }
+  .card span { color:var(--muted); font-size:15px; }
+  footer { text-align:center; color:var(--muted); font-size:14px; padding:24px; }
+  footer a { color:#1565c0; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>BoxSnap</h1>
+  <p data-l="en">Packing videos for every online order – started by a QR scan, saved to your phone and Google Drive.</p>
+  <p data-l="vi" hidden>Quay video đóng gói cho từng đơn hàng online – bắt đầu bằng quét mã QR, lưu trên điện thoại và Google Drive.</p>
+  <a class="btn" href="https://play.google.com/store/apps/developer?id=Jookata">Google Play</a>
+  <div class="lang"><a href="#en" onclick="setLang('en')">English</a>·<a href="#vi" onclick="setLang('vi')">Tiếng Việt</a></div>
+</section>
+<main>
+  <div class="grid" data-l="en">
+    <div class="card"><b>1. Scan to start</b><span>Hold the order QR close to the camera. Beep, flash – recording starts, named after the order code.</span></div>
+    <div class="card"><b>2. Pack</b><span>Hands-free. Far-away labels don't stop the video. Orders already recorded are blocked.</span></div>
+    <div class="card"><b>3. Scan or 👌 to stop</b><span>Hold the QR close again or show the OK hand sign for 1 second.</span></div>
+    <div class="card"><b>4. Find it fast</b><span>Scan the disputed parcel to find its video. Send the file or a Google Drive link.</span></div>
+  </div>
+  <div class="grid" data-l="vi" hidden>
+    <div class="card"><b>1. Quét để bắt đầu</b><span>Đưa mã QR trên tờ đơn sát camera. Bíp, nháy đèn – bắt đầu quay, tên video là mã đơn.</span></div>
+    <div class="card"><b>2. Đóng gói</b><span>Rảnh hai tay. Nhãn ở xa không làm dừng quay. Đơn đã quay bị chặn quay trùng.</span></div>
+    <div class="card"><b>3. Quét hoặc 👌 để dừng</b><span>Đưa lại mã QR sát camera hoặc ra dấu tay OK trong 1 giây.</span></div>
+    <div class="card"><b>4. Tìm nhanh</b><span>Quét gói hàng bị khiếu nại để mở video. Gửi file hoặc link Google Drive.</span></div>
+  </div>
+</main>
+<footer>
+  © 2026 Jookata ·
+  <a href="privacy.html" data-l="en">Privacy Policy</a><a href="privacy.html#vi" data-l="vi" hidden>Chính sách quyền riêng tư</a>
+  · <a href="mailto:thietkeweb0907775942@gmail.com">Contact</a>
+</footer>
+<script>
+  function setLang(l) {
+    document.querySelectorAll('[data-l]').forEach(function (e) { e.hidden = e.getAttribute('data-l') !== l; });
+    document.documentElement.lang = l;
+  }
+  var h = (location.hash || '').replace('#', '');
+  var nav = (navigator.language || 'en').toLowerCase();
+  setLang(h === 'vi' || h === 'en' ? h : (nav.indexOf('vi') === 0 ? 'vi' : 'en'));
+</script>
+</body>
+</html>
